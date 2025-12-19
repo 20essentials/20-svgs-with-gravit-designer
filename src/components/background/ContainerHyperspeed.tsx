@@ -1,7 +1,9 @@
-"use client";
+'use client';
 import Hyperspeed from './Hyperspeed';
 
-export const ContainerHyperspeed = () => {
+import dynamic from 'next/dynamic';
+
+export const Container = () => {
   return (
     <article className='ContainerHyperspeed'>
       <Hyperspeed
@@ -46,3 +48,5 @@ export const ContainerHyperspeed = () => {
     </article>
   );
 };
+
+export const ContainerHyperspeed = dynamic(async () => Container, { ssr: false });
