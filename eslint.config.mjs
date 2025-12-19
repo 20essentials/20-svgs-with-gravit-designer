@@ -17,6 +17,7 @@ const eslintConfig = defineConfig([
     rules: {
       '@typescript-eslint/ban-ts-comment': 'off',
       '@next/next/no-img-element': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
       'eslint(react-hooks/refs)': 'off'
     }
   }

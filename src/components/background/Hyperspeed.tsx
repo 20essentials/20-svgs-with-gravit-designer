@@ -1,4 +1,5 @@
 //@ts-nocheck
+
 import { useEffect, useRef, type FC } from 'react';
 import * as THREE from 'three';
 import {
