@@ -2,7 +2,7 @@
 
 import { useState, startTransition, ViewTransition, addTransitionType } from 'react';
 import './projects.css';
-import './project2.css';
+// import './project2.css';
 
 const MAX_IMAGES = 20;
 const arrayImages = Array.from({ length: MAX_IMAGES }, (_, i) => `/assets/${i + 1}.svg`);
