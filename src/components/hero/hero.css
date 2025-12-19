@@ -1,0 +1,6 @@
+.am-hero {
+  canvas {
+    background-color: transparent;
+    z-index: 20;
+  }
+}
