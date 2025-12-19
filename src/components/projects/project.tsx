@@ -3,12 +3,11 @@
 import {
   useState,
   startTransition,
-  ViewTransition,
   addTransitionType,
-  ViewTransitionClass
+  ViewTransition
 } from 'react';
 import './projects.css';
-// import './project2.css';
+import dynamic from 'next/dynamic';
 
 const MAX_IMAGES = 20;
 const arrayImages = Array.from(
@@ -16,7 +15,7 @@ const arrayImages = Array.from(
   (_, i) => `/assets/${i + 1}.svg`
 );
 
-export function Project() {
+export function Project_() {
   const [show, setShow] = useState(true);
   const [firstIndex, setFirstIndex] = useState(0);
   const [secondIndex, setSecondIndex] = useState(18);
@@ -46,20 +45,16 @@ export function Project() {
       <aside className='w-full h-[50vmin] flex flex-wrap place-content-center backdrop-blur-[3vmax] bg-blue-400/40 relative'>
         {!show && (
           <ViewTransition
-            enter={
-              {
-                'slide-in-left': 'slide-in-left',
-                'slide-in-right': 'slide-in-right',
-                default: 'none'
-              } as any
-            }
-            exit={
-              {
-                'slide-out-left': 'slide-out-left',
-                'slide-out-right': 'slide-out-right',
-                default: 'none'
-              } as any
-            }
+            enter={{
+              'slide-in-left': 'slide-in-left',
+              'slide-in-right': 'slide-in-right',
+              default: 'auto'
+            }}
+            exit={{
+              'slide-out-left': 'slide-out-left',
+              'slide-out-right': 'slide-out-right',
+              default: 'auto'
+            }}
           >
             <img
               className='w-[28vmax] h-[45vmin] border-[0.1vmax] border-solid border-black'
@@ -70,20 +65,16 @@ export function Project() {
         )}
         {show && (
           <ViewTransition
-            enter={
-              {
-                'slide-in-left': 'slide-in-left',
-                'slide-in-right': 'slide-in-right',
-                default: 'none'
-              } as any
-            }
-            exit={
-              {
-                'slide-out-left': 'slide-out-left',
-                'slide-out-right': 'slide-out-right',
-                default: 'none'
-              } as any
-            }
+            enter={{
+              'slide-in-left': 'slide-in-left',
+              'slide-in-right': 'slide-in-right',
+              default: 'auto'
+            }}
+            exit={{
+              'slide-out-left': 'slide-out-left',
+              'slide-out-right': 'slide-out-right',
+              default: 'auto'
+            }}
           >
             <img
               className='w-[28vmax] h-[45vmin] border-[0.1vmax] border-solid border-black absolute -translate-1/2 left-1/2 top-1/2'
@@ -112,3 +103,5 @@ export function Project() {
     </article>
   );
 }
+
+export const Project = dynamic(async () => Project_, { ssr: false });
